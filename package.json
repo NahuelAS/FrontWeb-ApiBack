@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "http-server -c-1",
-    "dev:template": "cd ./webApi && nodemon --inspect index.js",
+    "dev:template": "cd ./API && nodemon --inspect index.js",
     "test:cypress": "cypress run",
     "test:cypress:dev": "cypress open"
   },
