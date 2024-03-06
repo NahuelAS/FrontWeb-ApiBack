@@ -1,0 +1,42 @@
+{
+  "name": "frontweb-apiback",
+  "version": "1.0.0",
+  "description": "Proyecto que conecta una Web con una API local",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "http-server -c-1",
+    "dev:template": "cd ./webApi && nodemon --inspect index.js",
+    "test:cypress": "cypress run",
+    "test:cypress:dev": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NahuelAS/FrontWeb-ApiBack.git"
+  },
+  "author": "Nahuel Stella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NahuelAS/FrontWeb-ApiBack/issues"
+  },
+  "homepage": "https://github.com/NahuelAS/FrontWeb-ApiBack#readme",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "express-handlebars": "^7.1.2",
+    "fontawesome": "^5.6.3",
+    "http-server": "^14.1.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.24.0",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.0",
+    "babel": "^6.23.0",
+    "cypress": "^13.6.6",
+    "express": "^4.18.3",
+    "nodemon": "^3.1.0"
+  }
+}
