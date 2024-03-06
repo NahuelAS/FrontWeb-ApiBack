@@ -20,3 +20,27 @@ export async function getUNequipo(idEquipo) {
 
     return resJson;
 }
+
+export async function editarUNequipo(idEquipo, tipoDato, valor) {
+    const reqOpcionMethod = {
+        method: 'PUT',
+        body: JSON.stringify({tipoDato, valor}),
+        headers: {'Content-Type': 'application/json',},
+    };
+    const resPage = await fetch(`${APIURL}/equipo/${idEquipo}/${tipoDato}/${valor}/editar`, await reqOpcionMethod);
+}
+
+export async function eliminarEquipo(idEquipo){
+    const respuesta = confirm('¡¿BORRAR?!');
+    if(!respuesta){
+        return;
+    }
+
+    const reqOpcionMethod = {
+        method: 'DELETE',
+    };
+    await fetch(`${APIURL}/borrar/${idEquipo}`, reqOpcionMethod);
+
+    window.location.href = '/';
+}
+

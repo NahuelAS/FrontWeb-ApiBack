@@ -13,7 +13,7 @@
         .form-group {
             padding: 10px;
         }
-        form {
+        .formulario {
             padding-top: 10px;
             padding-bottom: 25px;
             display: none;
@@ -22,7 +22,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
         <div class="container-fluid">           
-                <img src="Chelsea_FC.svg.png" alt="Bootstrap" width="50" height="50">           
+                <img src="#" class="escudo" alt="Bootstrap" width="50" height="50">           
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -37,12 +37,12 @@
     <main>
         
         <div class="text-center">
-            <img src="Chelsea_FC.svg.png" class="rounded img-thumbnail" alt="..." width="300" height="300" >
+            <img src="#" class="escudo rounded img-thumbnail" alt="..." width="300" height="300" >
         </div>
         <br>
 
         <!--! PRINCIPIO DEL FORMULARIO -->
-        <form id="formulario-subir" method="post" enctype="multipart/form-data">
+        <form id="formulario-subir" class="formulario" method="post" enctype="multipart/form-data">
             <div class="form-group row">
                 <div class="col-sm-10">
                     <label for="file-upload" class="custom-file-upload">Seleccionar Archivo</label>
@@ -59,12 +59,12 @@
             <div class="form-group row">
                 <!--? Nombre -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="nombre" id="nombre"
+                    <input type="text" class="editarNombre form-control form-control-user" name="nombre" id="nombre"
                         placeholder="Nombre">
                 </div>
                 <!--? Nombre Corto -->
                 <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="nombreCorto" name="nombreCorto"
+                    <input type="text" class="editarNombreCorto form-control-user" id="nombreCorto" name="nombreCorto"
                         placeholder="Nombre Corto">
                 </div>
             </div>
@@ -72,12 +72,12 @@
             <div class="form-group row">
                 <!--? Abreviatura -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" maxlength="3" minlength="3"
+                    <input type="text" class="editarAbreviatura form-control form-control-user" maxlength="3" minlength="3"
                         id="abreviatura" name="abreviatura" placeholder="Abreviatura">
                 </div>
                 <!--? Colores -->
                 <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="colores" name="colores"
+                    <input type="text" class="editarColores form-control form-control-user" id="colores" name="colores"
                         placeholder="Colores">
                 </div>
             </div>
@@ -86,12 +86,12 @@
             <div class="form-group row">
                 <!--? Pais -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user"
+                    <input type="text" class="editarPais form-control form-control-user"
                         id="pais" name="pais" placeholder="Pais">
                 </div>
                 <!--? Direccion -->
                 <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="direccion" name="direccion"
+                    <input type="text" class="editarDireccion form-control form-control-user" id="direccion" name="direccion"
                         placeholder="Direccion">
                 </div>
             </div>
@@ -100,13 +100,13 @@
             <div class="form-group row">
                 <!--? Estadio -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="estadio" name="estadio"
+                    <input type="text" class="editarEstadio form-control form-control-user" id="estadio" name="estadio"
                         placeholder="Estadio">
                 </div>
         
                 <!--? Telefono -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="telefono" name="telefono"
+                    <input type="text" class="editarTelefono form-control form-control-user" id="telefono" name="telefono"
                         placeholder="Telefono">
                 </div>
                 
@@ -116,18 +116,18 @@
             <div class="form-group row">
                 <!--? Web -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="web" name="web"
+                    <input type="text" class="editarWeb form-control form-control-user" id="web" name="web"
                         placeholder="Web">
                 </div>
                 <!--? Fundacion -->
                 <div class="col-sm-6">
-                    <input type="number" class="form-control form-control-user" id="fundacion" name="fundacion"
+                    <input type="number" class="editarFundacion form-control form-control-user" id="fundacion" name="fundacion"
                         placeholder="Fundacion">
                 </div>
             </div>
         
             <!-- Boton de Editar -->
-            <a href="login.html" class="btn btn-primary btn-user btn-block">
+            <a class="editar btn btn-primary btn-user btn-block" role="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="">
                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
@@ -177,7 +177,7 @@
         </table>
 
         <div class="container-buttons">
-            <button class="editar btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="">
+            <button class="edit btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="">
                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
             </svg> Editar</button>
@@ -207,5 +207,6 @@
     </div>
     
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="module" src="/Web/src/funcionEquipos.js"></script>
 </body>
 </html>
