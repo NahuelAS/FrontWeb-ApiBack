@@ -4,7 +4,7 @@ export async function getEquipos() {
     const reqOpcionMethod = {
         method: 'GET',
     };
-    const resPage = await fetch(`${APIURL}/equpos`, reqOpcionMethod);
+    const resPage = await fetch(`${APIURL}/equipos`, reqOpcionMethod);
     const resJson = await resPage.json();
 
     return resJson;
