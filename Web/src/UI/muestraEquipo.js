@@ -14,7 +14,7 @@ export function informacionEquipo(equipos) {
     document.querySelector('#nombreCorto').textContent = equipos.shortName;
     document.querySelector('#abreviatura').textContent = equipos.tla;
     document.querySelector('#colores').textContent = equipos.clubColors;
-    // document.querySelector('#pais').textContent = `${equipo.area.name}`;
+    document.querySelector('#pais').textContent = equipos.area.name;
     document.querySelector('#direccion').textContent = equipos.address;
     document.querySelector('#estadio').textContent = equipos.venue;
     document.querySelector('#telefono').textContent = equipos.phone;
