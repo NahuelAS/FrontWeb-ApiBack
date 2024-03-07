@@ -1,3 +1,5 @@
+//este archivo es el encargado de armar la informacion para mostrar las tarjetas en el inicio con los equipos.
+
 const albumContainer = document.querySelector('.album .container');
 
 export async function mostrarEquipos(equipos){

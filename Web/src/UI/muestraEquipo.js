@@ -1,23 +1,26 @@
+//Recibe un objeto y se encarga de mostrar los resultados en el
+//archivo mostrar_equipo.html 
 export function informacionEquipo(equipos) {
-
-    console.log(equipos); //Podria ser equipo
+    console.log(equipos); //Devuelve Un Objeto con los datos de UN equipo.
     const imgEscudos = document.querySelectorAll('.escudo');
     const imgUrl = equipos.crestUrl;
 
-    if(imgUrl !== undefined && imgUrl.startsWith('https://')) {
-        imgEscudos.forEach(imgEscudo => imgEscudo.src = imgUrl);
+    if(imgUrl !== undefined && imgUrl.startsWith('https://')) { //Pregunta si la imagen existe y si empieza con una URL
+        imgEscudos.forEach(imgEscudo => imgEscudo.src = imgUrl); //si empieza con la URL quiere decir que es de la api
     } else {
-        imgEscudos.forEach(imgEscudo => imgEscudo.src = '/' + imgUrl);
+        imgEscudos.forEach(imgEscudo => imgEscudo.src = '/' + imgUrl); //si no pone una / y el nombe quedaria (API/uploads/imgs/imagen.png) 
     }
 
+    //se capturan los datos y distribuyen a sus respectivos lugares en el html
     const nombres = document.querySelectorAll('#nombre');
     const nomEquipo = equipos.name;
     nombres.forEach(nombre => nombre.textContent = nomEquipo);
     
+    
     document.querySelector('#nombreCorto').textContent = equipos.shortName;
     document.querySelector('#abreviatura').textContent = equipos.tla;
     document.querySelector('#colores').textContent = equipos.clubColors;
-    // document.querySelector('#pais').textContent = equipos.area.name;
+    // document.querySelector('#pais').textContent = equipos.area.name; //! falta Solucionar
     document.querySelector('#direccion').textContent = equipos.address;
     document.querySelector('#estadio').textContent = equipos.venue;
     document.querySelector('#telefono').textContent = equipos.phone;
@@ -27,18 +30,22 @@ export function informacionEquipo(equipos) {
 
 }
 
-
+//buscar la url y captura al id (http://localhost:8081/Web/Templates/mostrar_equipo?id=812) en este caso traeria 812.
 export function getIDurl() {
     let paramsURL = new URLSearchParams(window.location.search);
     let id = paramsURL.get('id');
     return id; 
 }
 
+//escucha los clics en el botón de borrado y, cuando se hace clic, 
+//invoca una función de devolución de llamada (equipoSeleccionadoCB) con el ID del equipo seleccionado como argumento.
 export function borrarEquipo(equipoSeleccionadoCB = () => { } ) {
     const btnBorrar = document.querySelector('.borrar');
     btnBorrar.addEventListener('click', () => equipoSeleccionadoCB(getIDurl()));
 }
 
+//escucha los clics en todos los elementos con la clase "editar" y, cuando se hace clic en uno de estos elementos, 
+//invoca una función (datosEditar) con información relevante sobre el elemento clicado y el ID del equipo para manejar la edición del equipo correspondiente.
 export function eventoBtnEditar(callBack = () => { }) {
     const paramsURL = new URLSearchParams(window.location.search);
     const id = paramsURL.get('id');
@@ -50,7 +57,8 @@ export function eventoBtnEditar(callBack = () => { }) {
     });
 }
 
-    function datosEditar(element, callBack, id) {
+//busca en el formulario de mostrar_equipo.html si en algun input hay algun valor y si lo hay los envia para editar. 
+function datosEditar(element, callBack, id) {
         if(element.classList.contains('.custom-file')) {
             const valor = document.querySelector('#file-upload').file[0];
             eventImg(id);
@@ -72,7 +80,7 @@ export function eventoBtnEditar(callBack = () => { }) {
             callBack(id, "clubColors", valor.value);
         }
         // if(element.classList.contains('editarPais')) {
-        //     const valor = document.querySelector('#pais');
+        //     const valor = document.querySelector('#pais'); //! Solucionar
         //     callBack(id, "area.name", valor.value);
         // }
         if(element.classList.contains('editarDireccion')) {
@@ -97,6 +105,7 @@ export function eventoBtnEditar(callBack = () => { }) {
         }
     }
 
+//? ----
 function eventImg(id) {
     const form = document.querySelector('formulario-subir');
     form.addEventListener('submit', function() {
@@ -105,6 +114,7 @@ function eventImg(id) {
     });
 }
 
+//Estas funciones manipulan el formulario de edicion para mostrarse o no cuando se requiera.
 export function editarEquipo() {
     document.querySelector('.edit').onclick = function (e) {
         mostrarBtn();
