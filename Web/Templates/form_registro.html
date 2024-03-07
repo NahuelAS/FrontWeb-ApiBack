@@ -44,7 +44,7 @@
             <div class="form-group row">
                 <div class="col-sm-12">
                     <label for="file-upload" class="custom-file-upload">Seleccionar Archivo</label>
-                    <input type="file" name="imagen" class="custom-file" id="file-upload" >              
+                    <input type="file" name="imagen" class="custom-file" id="file-upload" required>              
                 </div>
             </div>
             <!-- Nombre y Nombre Corto -->
@@ -52,12 +52,12 @@
                 <!--? Nombre -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="editarNombre form-control form-control-user" name="nombre" id="nombre"
-                        placeholder="Nombre">
+                        placeholder="Nombre" required>
                 </div>
                 <!--? Nombre Corto -->
                 <div class="col-sm-6">
                     <input type="text" class="editarNombreCorto form-control form-control-user" id="nombreCorto" name="nombreCorto"
-                        placeholder="Nombre Corto">
+                        placeholder="Nombre Corto" required>
                 </div>
             </div>
             <!-- Abreviatura y Colores -->
@@ -65,12 +65,12 @@
                 <!--? Abreviatura -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="editarAbreviatura form-control form-control-user" maxlength="3" minlength="3"
-                        id="abreviatura" name="abreviatura" placeholder="Abreviatura">
+                        id="abreviatura" name="abreviatura" placeholder="Abreviatura" required>
                 </div>
                 <!--? Colores -->
                 <div class="col-sm-6">
                     <input type="text" class="editarColores form-control form-control-user" id="colores" name="colores"
-                        placeholder="Colores">
+                        placeholder="Colores" required>
                 </div>
             </div>
             
@@ -79,12 +79,12 @@
                 <!--? Pais -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="editarPais form-control form-control-user"
-                        id="pais" name="pais" placeholder="Pais">
+                        id="pais" name="pais" placeholder="Pais" required> 
                 </div>
                 <!--? Direccion -->
                 <div class="col-sm-6">
                     <input type="text" class="editarDireccion form-control form-control-user" id="direccion" name="direccion"
-                        placeholder="Direccion">
+                        placeholder="Direccion" required>
                 </div>
             </div>
         
@@ -93,13 +93,13 @@
                 <!--? Estadio -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="editarEstadio form-control form-control-user" id="estadio" name="estadio"
-                        placeholder="Estadio">
+                        placeholder="Estadio" required>
                 </div>
         
                 <!--? Telefono -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="editarTelefono form-control form-control-user" id="telefono" name="telefono"
-                        placeholder="Telefono">
+                        placeholder="Telefono" required>
                 </div>
                 
             </div>
@@ -109,12 +109,12 @@
                 <!--? Web -->
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="editarWeb form-control form-control-user" id="web" name="web"
-                        placeholder="Web">
+                        placeholder="Web" required>
                 </div>
                 <!--? Fundacion -->
                 <div class="col-sm-6">
                     <input type="number" class="editarFundacion form-control form-control-user" id="fundacion" name="fundacion"
-                        placeholder="Fundacion">
+                        placeholder="Fundacion" required>
                 </div>
             </div>
         
@@ -143,7 +143,7 @@
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
             <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
             </a>
-            <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Nahuel Stella, Inc</span>
+            <span class="mb-3 mb-md-0 text-body-secondary"><strong>&copy;</strong> - <strong>2024</strong> - <strong>Nahuel Stella</strong> - <strong>Inc</strong></span>
         </div>
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <a class="btn btn-dark btn-social mx-2" href="https://github.com/NahuelAS" aria-label="GitHub"><i class="fa-brands fa-github-square"></i></a> 
