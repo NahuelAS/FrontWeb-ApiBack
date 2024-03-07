@@ -1,11 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
     <title>Document</title>
 </head>
 <body>
+
+    <style>
+        .form-group {
+            padding: 10px;
+        }
+        .formulario {
+            padding-top: 10px;
+            padding-bottom: 25px;
+            display: absolute;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">           
+                <img src="#" class="escudo" alt="Bootstrap" width="50" height="50">           
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/" onclick="window.location.href ='/'">Principal</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <section class="py-5 text-center container">
+    <main>
+        
+
+        <!--! PRINCIPIO DEL FORMULARIO -->
+        <form class="login-form" action="http://localhost:8080/form" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <label for="file-upload" class="custom-file-upload">Seleccionar Archivo</label>
+                    <input type="file" name="imagen" class="custom-file" id="file-upload" >              
+                </div>
+            </div>
+            <!-- Nombre y Nombre Corto -->
+            <div class="form-group row">
+                <!--? Nombre -->
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="editarNombre form-control form-control-user" name="nombre" id="nombre"
+                        placeholder="Nombre">
+                </div>
+                <!--? Nombre Corto -->
+                <div class="col-sm-6">
+                    <input type="text" class="editarNombreCorto form-control form-control-user" id="nombreCorto" name="nombreCorto"
+                        placeholder="Nombre Corto">
+                </div>
+            </div>
+            <!-- Abreviatura y Colores -->
+            <div class="form-group row">
+                <!--? Abreviatura -->
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="editarAbreviatura form-control form-control-user" maxlength="3" minlength="3"
+                        id="abreviatura" name="abreviatura" placeholder="Abreviatura">
+                </div>
+                <!--? Colores -->
+                <div class="col-sm-6">
+                    <input type="text" class="editarColores form-control form-control-user" id="colores" name="colores"
+                        placeholder="Colores">
+                </div>
+            </div>
+            
+            <!-- Pais y Direccion -->
+            <div class="form-group row">
+                <!--? Pais -->
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="editarPais form-control form-control-user"
+                        id="pais" name="pais" placeholder="Pais">
+                </div>
+                <!--? Direccion -->
+                <div class="col-sm-6">
+                    <input type="text" class="editarDireccion form-control form-control-user" id="direccion" name="direccion"
+                        placeholder="Direccion">
+                </div>
+            </div>
+        
+            <!-- Estadio y Telefono -->
+            <div class="form-group row">
+                <!--? Estadio -->
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="editarEstadio form-control form-control-user" id="estadio" name="estadio"
+                        placeholder="Estadio">
+                </div>
+        
+                <!--? Telefono -->
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="editarTelefono form-control form-control-user" id="telefono" name="telefono"
+                        placeholder="Telefono">
+                </div>
+                
+            </div>
+        
+            <!-- Web y Fundacion -->
+            <div class="form-group row">
+                <!--? Web -->
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="editarWeb form-control form-control-user" id="web" name="web"
+                        placeholder="Web">
+                </div>
+                <!--? Fundacion -->
+                <div class="col-sm-6">
+                    <input type="number" class="editarFundacion form-control form-control-user" id="fundacion" name="fundacion"
+                        placeholder="Fundacion">
+                </div>
+            </div>
+        
+            <!-- Boton de Editar -->
+
+            <input type="submit" value="Registrar" id="enviar" class="btn btn-primary btn-user btn-block">
+            <!-- <a class="editar btn btn-primary btn-user btn-block" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                </svg>
+                Registrar
+            </a> -->
+        
+        </form>
+        <!--! FINAL DEL FORMULARIO -->
+        
+
+
+    </section>
+    </main>
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Nahuel Stella, Inc</span>
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <a class="btn btn-dark btn-social mx-2" href="https://github.com/NahuelAS" aria-label="GitHub"><i class="fa-brands fa-github-square"></i></a> 
+                <strong>/</strong> 
+            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a> 
+                <strong>/</strong> 
+            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/nahuel-stella-631866286" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </ul>
+        </footer>
+    </div>
     
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="module" src="/Web/src/funcionEquipos.js"></script>
 </body>
 </html>

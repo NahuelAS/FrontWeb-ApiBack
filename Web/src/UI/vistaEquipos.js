@@ -5,8 +5,7 @@ export async function mostrarEquipos(equipos){
     const div = document.createElement('div');
     div.className = 'row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3';
     
-    equipos.forEach(equipo => {
-        
+    equipos.forEach(equipo => {    
         const card = document.createElement('div'); 
         card.className = 'col';
         card.innerHTML = `
@@ -17,7 +16,7 @@ export async function mostrarEquipos(equipos){
                 <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-primary btn-outline-secondary"><a href="${equipo.website}"><strong>Sitio Web</strong></a></button>
-                    <button type="button" class="btn btn-sm btn-primary btn-outline-secondary"><strong>Ver Equipo</strong></button>
+                    <a type="button" class="btn btn-sm btn-primary btn-outline-secondary" href="Web/Templates/mostrar_equipo?id=${equipo.id}"><strong>Ver Equipo</strong></a>
                 </div>
                 </div>
             </div>

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
     <title>Document</title>
 </head>
 <body>
@@ -22,11 +23,11 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
         <div class="container-fluid">           
-                <img src="#" class="escudo" alt="Bootstrap" width="50" height="50">           
+                <img src="#" class="escudo" alt="" width="50" height="50">           
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Principal</a>
+                <a class="nav-link active" aria-current="page" href="/" onclick="window.location.href ='/'">Principal</a>
             </li>
             </ul>
         </div>
@@ -37,10 +38,46 @@
     <main>
         
         <div class="text-center">
-            <img src="#" class="escudo rounded img-thumbnail" alt="..." width="300" height="300" >
+            <img src="#" class="escudo rounded img-thumbnail" alt="" width="300" height="300" >
         </div>
         <br>
-
+        <table class="table table-primary table-bordered border-dark">
+    
+            <thead>
+            <tr>
+    
+                <th scope="col">Nombre</th>
+                <th scope="col">Nombre Corto</th>
+                <th scope="col">Abreviatura</th>
+                <th scope="col">Colores</th>
+                <!-- <th scope="col">Pais</th> -->
+                <th scope="col">Direccion</th>
+                <th scope="col">Estadio</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Sitio Web</th>
+                <th scope="col">Fundacion</th>
+    
+            </tr>
+            </thead>
+    
+            <tbody>
+            <tr>
+    
+                <td id="nombre"></td>
+                <td id="nombreCorto"></td>
+                <td id="abreviatura"></td>
+                <td id="colores"></td>
+                <!-- <td id="pais"></td> -->
+                <td id="direccion"></td>
+                <td id="estadio"></td>
+                <td id="telefono"></td>
+                <td><a href="" id="web"></a></td>
+                <td id="fundacion"></td>
+    
+            </tr>
+            </tbody>
+    
+        </table>
         <!--! PRINCIPIO DEL FORMULARIO -->
         <form id="formulario-subir" class="formulario" method="post" enctype="multipart/form-data">
             <div class="form-group row">
@@ -49,7 +86,7 @@
                     <input type="file" name="imagen" class="custom-file" id="file-upload" >              
                 </div>
                 <div class="col-sm-2">
-                    <button class="close btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0  16 16">
+                    <button class="close btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
                     </svg></button>
@@ -64,7 +101,7 @@
                 </div>
                 <!--? Nombre Corto -->
                 <div class="col-sm-6">
-                    <input type="text" class="editarNombreCorto form-control-user" id="nombreCorto" name="nombreCorto"
+                    <input type="text" class="editarNombreCorto form-control form-control-user" id="nombreCorto" name="nombreCorto"
                         placeholder="Nombre Corto">
                 </div>
             </div>
@@ -128,7 +165,7 @@
         
             <!-- Boton de Editar -->
             <a class="editar btn btn-primary btn-user btn-block" role="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                 </svg>
@@ -138,50 +175,14 @@
         </form>
         <!--! FINAL DEL FORMULARIO -->
         
-        <table class="table table-primary table-bordered border-dark">
-    
-            <thead>
-            <tr>
-    
-                <th scope="col">Nombre</th>
-                <th scope="col">Nombre Corto</th>
-                <th scope="col">Abreviatura</th>
-                <th scope="col">Colores</th>
-                <th scope="col">Pais</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Estadio</th>
-                <th scope="col">Telefono</th>
-                <th scope="col">Sitio Web</th>
-                <th scope="col">Fundacion</th>
-    
-            </tr>
-            </thead>
-    
-            <tbody>
-            <tr>
-    
-                <td id="nombre"></td>
-                <td id="nombreCorto"></td>
-                <td id="abreviatura"></td>
-                <td id="colores"></td>
-                <td id="pais"></td>
-                <td id="direccion"></td>
-                <td id="estadio"></td>
-                <td id="telefono"></td>
-                <td id="web"></td>
-                <td id="fundacion"></td>
-    
-            </tr>
-            </tbody>
-    
-        </table>
+        
 
         <div class="container-buttons">
-            <button class="edit btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="">
+            <button class="edit btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
             </svg> Editar</button>
-            <button class="borrar btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="">
+            <button class="borrar btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
                 <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/></svg> Borrar</button>
         </div>
 
@@ -206,7 +207,7 @@
         </footer>
     </div>
     
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="module" src="/Web/src/funcionEquipos.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="module" src="../src/funcionEquipos.js"></script>
 </body>
 </html>

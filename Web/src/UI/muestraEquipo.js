@@ -1,34 +1,37 @@
-export function informacioEquipo(equipo) {
-    const imgEscudo = document.querySelectorAll('.escudo');
-    const imgUrl = equipo.crestUrl;
+export function informacionEquipo(equipos) {
 
-    if(imgUrl !== undefined && imgUrl.startsWhit('http://')) {
-        imgEscudo.src = `${equipo.crestUrl}`;
+    console.log(equipos); //Podria ser equipo
+    const imgEscudos = document.querySelectorAll('.escudo');
+    const imgUrl = equipos.crestUrl;
+
+    if(imgUrl !== undefined && imgUrl.startsWith('https://')) {
+        imgEscudos.forEach(imgEscudo => imgEscudo.src = imgUrl);
     } else {
-        imgEscudo.src = `/${equipo.crestUrl}`;
+        imgEscudos.forEach(imgEscudo => imgEscudo.src = '/' + imgUrl);
     }
 
-    document.querySelector('#nombre').textContent = `${equipo.name}`;
-    document.querySelector('#nombreCorto').textContent = `${equipo.shortName}`;
-    document.querySelector('#abreviatura').textContent = `${equipo.tla}`;
-    document.querySelector('#colores').textContent = `${equipo.clubColors}`;
-    document.querySelector('#pais').textContent = `${equipo.area.name}`;
-    document.querySelector('#direccion').textContent = `${equipo.address}`;
-    document.querySelector('#estadio').textContent = `${equipo.venue}`;
-    document.querySelector('#telefono').textContent = `${equipo.phone}`;
-    document.querySelector('#web').href = `${equipo.website}`;
-    document.querySelector('#web').textContent = `${equipo.website}`;
-    document.querySelector('#fundacion').textContent = `${equipo.founded}`;
+    document.querySelector('#nombre').textContent = equipos.name;
+    document.querySelector('#nombreCorto').textContent = equipos.shortName;
+    document.querySelector('#abreviatura').textContent = equipos.tla;
+    document.querySelector('#colores').textContent = equipos.clubColors;
+    // document.querySelector('#pais').textContent = `${equipo.area.name}`;
+    document.querySelector('#direccion').textContent = equipos.address;
+    document.querySelector('#estadio').textContent = equipos.venue;
+    document.querySelector('#telefono').textContent = equipos.phone;
+    document.querySelector('#web').href = equipos.website;
+    document.querySelector('#web').textContent = equipos.website;
+    document.querySelector('#fundacion').textContent = equipos.founded;
+
 }
 
 
 export function getIDurl() {
-    const paramsURL = new URLSearchParams(window.location.search);
-    const id = paramsURL.get('id');
+    let paramsURL = new URLSearchParams(window.location.search);
+    let id = paramsURL.get('id');
     return id; 
 }
 
-export function borrarEquipo(equipoSeleccionadoCB = () => {} ) {
+export function borrarEquipo(equipoSeleccionadoCB = () => { } ) {
     const btnBorrar = document.querySelector('.borrar');
     btnBorrar.addEventListener('click', () => equipoSeleccionadoCB(getIDurl()));
 }
@@ -37,11 +40,9 @@ export function eventoBtnEditar(callBack = () => {}) {
     const paramsURL = new URLSearchParams(window.location.search);
     const id = paramsURL.get('id'); 
     const btn = document.querySelector('.editar');
-    btn.forEach((element) => {
-        element.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
             datosEditar(element, callBack, id);
         });
-    });
 }
 
 function datosEditar(element, callBack, id) {
@@ -100,17 +101,21 @@ function evenImg(id) {
 }
 
 export function editarEquipo() {
-    const btnEdit = document.querySelector('.edit');
-    btnEdit.addEventListener('click', () => {
-        const mod = document.querySelector('.formulario');
-        mod.style.display = 'absolute';
-    });
+    document.querySelector('.edit').onclick = function (e) {
+        mostrarBtn();
+    }
+}
+function mostrarBtn() {
+    document.querySelector('#formulario-subir').style.display = 'block';
 }
 
+
 export function esconderFormulario() {
-    const esconderForm = document.querySelector('.close');
-    const form = document.querySelector('formulario');
-    esconderForm.addEventListener('click', () => {
-        form.style.display = 'none';
-    });
+    document.querySelector('.close').onclick = function(e) {
+        ocultarBtn();
+    }
+}
+
+function ocultarBtn() {
+    document.querySelector('#formulario-subir').style.display = '';
 }

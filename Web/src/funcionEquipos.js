@@ -1,8 +1,8 @@
-import { editarUNequipo, getUNequipo, eliminarEquipo } from "./src/conexion/conexionApi.js";
-import { esconderFormulario, editarEquipo, borrarEquipo, getIDurl, informacioEquipo, eventoBtnEditar } from "./UI/muestraEquipo.js";
+import { editarUNequipo, getUNequipo, eliminarEquipo } from "./conexion/conexionApi.js";
+import { esconderFormulario, editarEquipo, borrarEquipo, getIDurl, informacionEquipo, eventoBtnEditar } from "./UI/muestraEquipo.js";
 
 async function iniciar() {
-    informacioEquipo(await getUNequipo(getIDurl()));
+    informacionEquipo(await getUNequipo(getIDurl()));
     borrarEquipo(eliminarEquipo);
     editarEquipo();
     esconderFormulario();

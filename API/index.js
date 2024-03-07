@@ -4,10 +4,10 @@ const multer = require('multer');
 const cors = require('cors');
 
 const storadge = multer.diskStorage({
-    destination: function (req, res, cd) {
+    destination: function (req, res, cb) {
         cb(null, './uploads/imgs');
     },
-    filename: function(req, file, cd) {
+    filename: function(req, file, cb) {
         cb(null, file.originalname);
     }
 });
@@ -21,12 +21,12 @@ app.use(cors());
 app.use(express.static(`${__dirname}/uploads`));
 
 app.get('/equipos', (req, res) => {
-    const equiposData = fs.readFileSync('./data/equipos.json');
+    const equipos = fs.readFileSync('./data/equipos.json');
     res.setHeader('Content-Type', 'application/json');
-    res.send(equiposData);
+    res.send(equipos);
 });
 
-app.get('/equipos/:id/mirar', (req, res) => {
+app.get('/mostrar_equipo/:id/ver', (req, res) => {
     const equipos = fs.readFileSync('./data/equipos.json');
     const objJson = JSON.parse(equipos);
     const equipo = objJson.find(obj => obj.id === Number(req.params.id));
@@ -41,6 +41,7 @@ app.post('/form', uploads.single('imagen'), (req, res) => {
     objJson.push({
         "id": randomID(objJson),
         "name": req.body.nombre,
+        "crestUrl": 'API/uploads/imgs/' + req.file.filename,
         "shortName": req.body.nombreCorto,
         "tla": req.body.abreviatura,
         "clubColors": req.body.colores,
@@ -65,17 +66,17 @@ function randomID(a) {
     return id;
 }
 
-app.post('/subir-imagen/:id', uploads.single('imagen'), (req, res) => {
+app.post('/subirImagen/:id', uploads.single('imagen'), (req, res) => {
     const equipos = fs.readFileSync('./data/equipos.json');
     const objJson = JSON.parse(equipos);
     const indexTeam = objJson.findIndex(obj => obj.id === Number(req.params.id));
-    objJson[indexTeam].crestUrl = 'Web/uploads/imagenes/' + req.file.filename;
+    objJson[indexTeam].crestUrl = 'API/uploads/imgs/' + req.file.filename;
 
     fs.writeFileSync('./data/equipos.json', JSON.stringify(objJson));
     res.redirect('http://192.168.1.10:8081/');
 });
 
-app.put('/equipos/:id/:tipoDato/:valor/editar', (req, res) => {
+app.put('/mostrar_equipo/:id/:tipoDato/:valor/editar', (req, res) => {
     const equipos = fs.readFileSync('./data/equipos.json');
     const objJson = JSON.parse(equipos);
     const indexTeam = objJson.findIndex(obj => obj.id === Number(req.params.id));
