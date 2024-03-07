@@ -12,3 +12,26 @@ a {
     text-decoration: none;
     color: whitesmoke;
 }
+
+.form-group {
+    padding: 10px;
+}
+
+.formulario {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    display: none;
+    background-color: rgb(98, 198, 231);
+}
+
+#close{
+    display: none;
+}
+
+#web {
+    color: black;
+}
+
+.container-buttons {
+    margin-top: 20px;
+}

@@ -16,8 +16,10 @@ export async function editarUNequipo(idEquipo, tipoDato, valor) {
         body: JSON.stringify({ tipoDato, valor }),
         headers: {'Content-Type': 'application/json',},
     };
-    const resPage = await fetch(`${APIURL}/equipo/${idEquipo}/${tipoDato}/${valor}/editar`, await reqOpcionMethod);
+        const resPage = await fetch(`${APIURL}/mostrar_equipo/${idEquipo}/${tipoDato}/${valor}/editar`, reqOpcionMethod);
+        return resPage;
 }
+
 
 export async function getUNequipo(idEquipo) {
     const reqOpcionMethod = {

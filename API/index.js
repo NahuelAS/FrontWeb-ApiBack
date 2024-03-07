@@ -81,6 +81,7 @@ app.put('/mostrar_equipo/:id/:tipoDato/:valor/editar', (req, res) => {
     const objJson = JSON.parse(equipos);
     const indexTeam = objJson.findIndex(obj => obj.id === Number(req.params.id));
     objJson[indexTeam][req.params.tipoDato] = req.params.valor;
+    console.log(req.params.tipoDato, " - ", req.params.valor);
 
     fs.writeFileSync('./data/equipos.json', JSON.stringify(objJson));
     res.send('El Equipo se Edito Exitosamente');

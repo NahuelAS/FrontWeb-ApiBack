@@ -6,20 +6,9 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../css/estilos.css">
-    <title>Document</title>
+    <title id="nombre"></title>
 </head>
 <body>
-
-    <style>
-        .form-group {
-            padding: 10px;
-        }
-        .formulario {
-            padding-top: 10px;
-            padding-bottom: 25px;
-            display: none;
-        }
-    </style>
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
         <div class="container-fluid">           
@@ -50,7 +39,7 @@
                 <th scope="col">Nombre Corto</th>
                 <th scope="col">Abreviatura</th>
                 <th scope="col">Colores</th>
-                <th scope="col">Pais</th>
+                <!-- <th scope="col">Pais</th> -->
                 <th scope="col">Direccion</th>
                 <th scope="col">Estadio</th>
                 <th scope="col">Telefono</th>
@@ -67,7 +56,7 @@
                 <td id="nombreCorto"></td>
                 <td id="abreviatura"></td>
                 <td id="colores"></td>
-                <td id="pais"></td>
+                <!-- <td id="pais"></td> -->
                 <td id="direccion"></td>
                 <td id="estadio"></td>
                 <td id="telefono"></td>
@@ -78,99 +67,179 @@
             </tbody>
     
         </table>
+        <div class="col-sm-2">
+            <button id="close" class="close btn btn-info"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg></button>
+        </div>
         <!--! PRINCIPIO DEL FORMULARIO -->
         <form id="formulario-subir" class="formulario" method="post" enctype="multipart/form-data">
+            
             <div class="form-group row">
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                     <label for="file-upload" class="custom-file-upload">Seleccionar Archivo</label>
                     <input type="file" name="imagen" class="custom-file" id="file-upload" >              
                 </div>
-                <div class="col-sm-2">
-                    <button class="close btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                    </svg></button>
+                <!--! Boton Editar -->
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <button class="editar custom-file btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
                 </div>
             </div>
+
             <!-- Nombre y Nombre Corto -->
             <div class="form-group row">
                 <!--? Nombre -->
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="editarNombre form-control form-control-user" name="nombre" id="nombre"
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="nombre" id="nombre-upd"
                         placeholder="Nombre">
                 </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarNombre btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
+                </div>
                 <!--? Nombre Corto -->
-                <div class="col-sm-6">
-                    <input type="text" class="editarNombreCorto form-control form-control-user" id="nombreCorto" name="nombreCorto"
+                <div class="col-sm-4">
+                    <input type="text" class="form-control form-control-user" id="nombreCorto-upd" name="nombreCorto"
                         placeholder="Nombre Corto">
                 </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarNombreCorto btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
+                </div>
             </div>
+
             <!-- Abreviatura y Colores -->
             <div class="form-group row">
                 <!--? Abreviatura -->
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="editarAbreviatura form-control form-control-user" maxlength="3" minlength="3"
-                        id="abreviatura" name="abreviatura" placeholder="Abreviatura">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" maxlength="3" minlength="3"
+                        id="abreviatura-upd" name="abreviatura" placeholder="Abreviatura">
+                </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarAbreviatura btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
                 </div>
                 <!--? Colores -->
-                <div class="col-sm-6">
-                    <input type="text" class="editarColores form-control form-control-user" id="colores" name="colores"
+                <div class="col-sm-4">
+                    <input type="text" class="form-control form-control-user" id="colores-upd" name="colores"
                         placeholder="Colores">
+                </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarColores btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
                 </div>
             </div>
             
             <!-- Pais y Direccion -->
             <div class="form-group row">
                 <!--? Pais -->
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="editarPais form-control form-control-user"
-                        id="pais" name="pais" placeholder="Pais">
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user"
+                        id="pais-upd" name="pais" placeholder="Pais" disabled>
+                </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarPais btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
                 </div>
                 <!--? Direccion -->
-                <div class="col-sm-6">
-                    <input type="text" class="editarDireccion form-control form-control-user" id="direccion" name="direccion"
+                <div class="col-sm-4">
+                    <input type="text" class="form-control form-control-user" id="direccion-upd" name="direccion"
                         placeholder="Direccion">
+                </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarDireccion btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
                 </div>
             </div>
         
             <!-- Estadio y Telefono -->
             <div class="form-group row">
                 <!--? Estadio -->
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="editarEstadio form-control form-control-user" id="estadio" name="estadio"
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="estadio-upd" name="estadio"
                         placeholder="Estadio">
+                </div>       
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarEstadio btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
                 </div>
-        
                 <!--? Telefono -->
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="editarTelefono form-control form-control-user" id="telefono" name="telefono"
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="telefono-upd" name="telefono"
                         placeholder="Telefono">
-                </div>
-                
+                </div>    
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarTelefono btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
+                </div>           
             </div>
         
             <!-- Web y Fundacion -->
             <div class="form-group row">
                 <!--? Web -->
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="editarWeb form-control form-control-user" id="web" name="web"
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="web-upd" name="web"
                         placeholder="Web">
                 </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarWeb btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
+                </div>
                 <!--? Fundacion -->
-                <div class="col-sm-6">
-                    <input type="number" class="editarFundacion form-control form-control-user" id="fundacion" name="fundacion"
+                <div class="col-sm-4">
+                    <input type="number" class="form-control form-control-user" id="fundacion-upd" name="fundacion"
                         placeholder="Fundacion">
                 </div>
+                <!--! Boton Editar -->
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <button class="editar editarFundacion btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                    </svg>
+                    Editar</button>
+                </div>
             </div>
-        
-            <!-- Boton de Editar -->
-            <a class="editar btn btn-primary btn-user btn-block" role="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                </svg>
-                Editar
-            </a>
         
         </form>
         <!--! FINAL DEL FORMULARIO -->
