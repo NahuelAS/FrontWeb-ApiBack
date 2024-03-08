@@ -53,6 +53,7 @@ export function eventoBtnEditar(callBack = () => { }) {
     btnEditar.forEach((element) => {
         element.addEventListener('click', () => {
             datosEditar(element, callBack, id);
+            window.location.href = `Web/Templates/mostrar_equipo?id=${equipo.id}`;
         });
     });
 }
